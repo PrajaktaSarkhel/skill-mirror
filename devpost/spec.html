@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillMirror — Technical Spec Companion</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --border: #1f293d;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --success: #10b981;
+      --danger: #f43f5e;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid var(--accent);
+      color: #818cf8;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    h1 { font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 { font-size: 1.3rem; color: #e0e7ff; margin-bottom: 1rem; }
+    .arch-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .arch-layer {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+    }
+    .layer-title { font-weight: 700; color: #818cf8; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.25rem; }
+    .layer-content { font-size: 0.95rem; color: #e2e8f0; }
+    code { font-family: monospace; background: #0f172a; padding: 0.15rem 0.4rem; border-radius: 4px; color: #38bdf8; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="badge">Devpost Learn · Spec Companion</span>
+    <h1>SkillMirror — Technical Blueprint</h1>
+    <p class="subtitle">Architecture, Data Flow, Components, and Fallback Strategy</p>
+  </header>
+
+  <div class="card">
+    <h2>🏗️ System Architecture & Data Flow</h2>
+    <div class="arch-flow">
+      <div class="arch-layer">
+        <div class="layer-title">Client Layer (Next.js 15 App Router)</div>
+        <div class="layer-content">
+          <code>SidebarNav</code> · <code>CodePlayground</code> · <code>PredictionQuizCard</code> · <code>DiagnosticBanner</code> · <code>AdaptiveFollowUpCard</code> · <code>SocraticCoachPanel</code>
+        </div>
+      </div>
+      <div class="arch-layer">
+        <div class="layer-title">API Routing Layer (Edge / Node API Routes)</div>
+        <div class="layer-content">
+          <code>/api/diagnose</code>: Synthesizes prediction options & misconception maps.<br>
+          <code>/api/followup</code>: Creates targeted remedial challenge for diagnosed flaw.<br>
+          <code>/api/chat</code>: Socratic AI mentor for follow-up questions.
+        </div>
+      </div>
+      <div class="arch-layer">
+        <div class="layer-title">Intelligence & Diagnostics Engine</div>
+        <div class="layer-content">
+          <strong>Primary:</strong> Gemini / OpenAI LLM Provider (when configured in <code>.env.local</code>)<br>
+          <strong>Resilient Fallback:</strong> Built-in Diagnostic Knowledge Base for guaranteed instant operation.
+        </div>
+      </div>
+      <div class="arch-layer">
+        <div class="layer-title">Persistence</div>
+        <div class="layer-content">
+          Browser <code>localStorage</code> (zero-friction, no mandatory signup barrier for hackathon reviewers).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>🚀 Execution & Setup</h2>
+      <p style="margin-bottom: 0.5rem;">Start local server:</p>
+      <pre style="background: #0f172a; padding: 0.75rem; border-radius: 6px; color: #10b981; font-family: monospace;">npm run dev</pre>
+      <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Runs on <code>http://localhost:3000</code>. Verified zero-config fallback active.</p>
+    </div>
+
+    <div class="card">
+      <h2>🛡️ Failure Mode Protection</h2>
+      <ul style="list-style-position: inside; color: #cbd5e1; font-size: 0.9rem;">
+        <li>Missing LLM Key → Automatic seamless fallback to built-in curriculum</li>
+        <li>Invalid Code Input → Inline error guidance</li>
+        <li>Offline Browser → In-memory session continuation</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

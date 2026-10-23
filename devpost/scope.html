@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillMirror — Scope Companion</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --border: #1f293d;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --success: #10b981;
+      --danger: #ef4444;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid var(--accent);
+      color: #818cf8;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    h1 { font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    h2 { font-size: 1.3rem; color: #e0e7ff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .highlight-box {
+      border-left: 4px solid var(--accent);
+      background: rgba(99, 102, 241, 0.08);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1rem;
+    }
+    .diagram-container {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .loop-flow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 1rem;
+      align-items: center;
+    }
+    .step-node {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 1rem;
+      border-radius: 8px;
+      min-width: 140px;
+      flex: 1;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .step-node:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--accent-glow);
+    }
+    .step-num { font-size: 0.75rem; color: #818cf8; text-transform: uppercase; font-weight: 700; }
+    .step-title { font-weight: 600; margin-top: 0.25rem; font-size: 0.95rem; }
+    .arrow { color: #64748b; font-size: 1.25rem; font-weight: bold; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .loop-flow { flex-direction: column; }
+    }
+    .tag-in { color: var(--success); font-weight: bold; }
+    .tag-later { color: var(--amber); font-weight: bold; }
+    .tag-cut { color: var(--danger); font-weight: bold; }
+    ul { list-style-position: inside; margin-left: 0.5rem; color: #d1d5db; }
+    li { margin-bottom: 0.4rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="badge">Devpost Learn · Build With AI: Basics</span>
+    <h1>SkillMirror — Scope Companion</h1>
+    <p class="subtitle">Find Out What You Actually Understand · Adaptive Developer Education</p>
+  </header>
+
+  <div class="card">
+    <h2>🎯 The Unique Kernel</h2>
+    <div class="highlight-box">
+      <strong>Active Mental Model Inversion:</strong> Unlike AI coding assistants that passively hand you answers and generate code explanations, SkillMirror forces the learner to predict execution output, flow, and edge cases first. It diagnoses the specific underlying misconception and immediately generates a targeted follow-up to re-test and solidify the mental model.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🔄 The Core Loop</h2>
+    <div class="diagram-container">
+      <div class="loop-flow">
+        <div class="step-node">
+          <div class="step-num">Step 1</div>
+          <div class="step-title">Paste Code / Pick Snippet</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step-node">
+          <div class="step-num">Step 2</div>
+          <div class="step-title">Predict Output & Edge Cases</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step-node">
+          <div class="step-num">Step 3</div>
+          <div class="step-title">Diagnose Misconception</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step-node">
+          <div class="step-num">Step 4</div>
+          <div class="step-title">Targeted Follow-Up Challenge</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2><span class="tag-in">✓</span> POC Boundary (Now)</h2>
+      <ul>
+        <li>Next.js web app matching reference dashboard styling</li>
+        <li>Curated code snippet library + custom code input</li>
+        <li>Interactive prediction question generator</li>
+        <li>Instant mental model diagnostic feedback</li>
+        <li>Adaptive follow-up generator</li>
+        <li>Socratic discussion assistant drawer</li>
+        <li>Score & mastery analytics (strengths vs. skill gaps)</li>
+        <li>Resilient mock fallback for instant zero-config testing</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="tag-cut">✗</span> Later & Explicitly Cut</h2>
+      <ul>
+        <li><strong class="tag-later">Later:</strong> WebContainers / Pyodide sandbox execution</li>
+        <li><strong class="tag-later">Later:</strong> User authentication & cloud synchronization</li>
+        <li><strong class="tag-later">Later:</strong> Multi-file repository ingestion</li>
+        <li><strong class="tag-cut">Cut:</strong> Mandatory login walls (slows 1-min demo)</li>
+        <li><strong class="tag-cut">Cut:</strong> Passive video tutorials (anti-pattern)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

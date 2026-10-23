@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillMirror — PRD Companion</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --border: #1f293d;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --success: #10b981;
+      --danger: #f43f5e;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid var(--accent);
+      color: #818cf8;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    h1 { font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 { font-size: 1.3rem; color: #e0e7ff; margin-bottom: 1rem; }
+    .journey-stepper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .step-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .step-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #818cf8;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .step-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
+    .step-desc { font-size: 0.85rem; color: var(--text-muted); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+    .feat-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .feat-card h3 { font-size: 1.05rem; color: #c7d2fe; margin-bottom: 0.5rem; }
+    .feat-card p { font-size: 0.9rem; color: #cbd5e1; }
+    .highlight-coral { border-left: 3px solid var(--danger); padding-left: 0.75rem; }
+    .highlight-green { border-left: 3px solid var(--success); padding-left: 0.75rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="badge">Devpost Learn · PRD Companion</span>
+    <h1>SkillMirror — Product Blueprint</h1>
+    <p class="subtitle">Detailed Journey, Surface Layout, and Feature Specification</p>
+  </header>
+
+  <div class="card">
+    <h2>🗺️ The Core Journey Steps</h2>
+    <div class="journey-stepper">
+      <div class="step-box">
+        <div class="step-tag">Step 1</div>
+        <div class="step-title">Select or Paste</div>
+        <div class="step-desc">Pick from curated mental model traps (closures, mutability) or paste custom code.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-tag">Step 2</div>
+        <div class="step-title">Predict Output</div>
+        <div class="step-desc">Select expected console logs or return values before answers are revealed.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-tag">Step 3</div>
+        <div class="step-title">Diagnose Trap</div>
+        <div class="step-desc">SkillMirror highlights the exact misconception in the learner's mental model.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-tag">Step 4</div>
+        <div class="step-title">Targeted Challenge</div>
+        <div class="step-desc">Adaptive follow-up question directly addresses and cures the blind spot.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>⚡ Key Product Behaviors</h2>
+    <div class="features-grid">
+      <div class="feat-card">
+        <h3>1. Code Preview & Challenge Stage</h3>
+        <p>A sleek dark-mode syntax editor with line numbers and difficulty tags, showing the exact snippet under investigation.</p>
+      </div>
+      <div class="feat-card highlight-coral">
+        <h3>2. Misconception Diagnostics</h3>
+        <p>Explains why intuitive choices fail: "You assumed `var` had block scope; in JavaScript `var` is function-scoped."</p>
+      </div>
+      <div class="feat-card highlight-green">
+        <h3>3. Adaptive Follow-Up Generator</h3>
+        <p>Synthesizes a tailored follow-up question that isolates the diagnosed misconception for immediate verification.</p>
+      </div>
+      <div class="feat-card">
+        <h3>4. Socratic AI Coach & Metrics</h3>
+        <p>Split-view conversational coach for progressive hints, accompanied by Strengths vs. Skill Gaps analytics.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

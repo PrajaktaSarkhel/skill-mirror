@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillMirror — App Map & Learning Wrap-Up</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --border: #1f293d;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #94a3af;
+      --success: #10b981;
+      --danger: #f43f5e;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid var(--accent);
+      color: #818cf8;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    h1 { font-size: 2.3rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    h2 { font-size: 1.3rem; color: #e0e7ff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .map-node {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .node-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .badge-ui { background: rgba(99, 102, 241, 0.2); color: #a5b4fc; }
+    .badge-logic { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+    .badge-ai { background: rgba(244, 63, 94, 0.2); color: #fda4af; }
+    .node-title { font-weight: 700; color: #fff; font-size: 1.05rem; margin-bottom: 0.25rem; }
+    .node-file { font-family: monospace; font-size: 0.8rem; color: #38bdf8; margin-bottom: 0.5rem; display: block; }
+    .node-desc { font-size: 0.85rem; color: var(--text-muted); }
+    .takeaway-box {
+      border-left: 4px solid var(--success);
+      background: rgba(16, 185, 129, 0.08);
+      padding: 1.25rem;
+      border-radius: 0 10px 10px 0;
+      margin-top: 1rem;
+    }
+    .takeaway-title { font-weight: 700; color: #a7f3d0; margin-bottom: 0.25rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="badge">Devpost Learn · Build Wrap-Up</span>
+    <h1>SkillMirror — App Map</h1>
+    <p class="subtitle">Component & Data Flow Map for Mental Model Diagnosis</p>
+  </header>
+
+  <div class="card">
+    <h2>🗺️ Interactive App Architecture</h2>
+    <div class="map-grid">
+      <div class="map-node">
+        <span class="node-badge badge-ui">UI Stage</span>
+        <div class="node-title">Challenge Workbench</div>
+        <span class="node-file">app/page.tsx</span>
+        <p class="node-desc">Coordinates dual-pane layout, active prediction state, and switches between Prediction Quiz and Adaptive Follow-Up.</p>
+      </div>
+
+      <div class="map-node">
+        <span class="node-badge badge-ui">Code Viewer</span>
+        <div class="node-title">Code Playground</div>
+        <span class="node-file">components/CodePlayground.tsx</span>
+        <p class="node-desc">Dark-mode syntax highlighted code box with line numbering, preset concept switcher, and custom code paste mode.</p>
+      </div>
+
+      <div class="map-node">
+        <span class="node-badge badge-logic">Diagnostic Kernel</span>
+        <div class="node-title">Prediction & Misconceptions</div>
+        <span class="node-file">components/PredictionQuizCard.tsx</span>
+        <p class="node-desc">Forces output prediction prior to reveal, mapping selected distractors to concrete mental model bugs.</p>
+      </div>
+
+      <div class="map-node">
+        <span class="node-badge badge-logic">Adaptive Remediation</span>
+        <div class="node-title">Adaptive Follow-Up</div>
+        <span class="node-file">components/AdaptiveFollowup.tsx</span>
+        <p class="node-desc">Presents targeted remedial code snippet specifically curing the identified misconception.</p>
+      </div>
+
+      <div class="map-node">
+        <span class="node-badge badge-ai">Socratic AI</span>
+        <div class="node-title">Follow-up Discussion</div>
+        <span class="node-file">components/SocraticDrawer.tsx</span>
+        <p class="node-desc">AI mentor providing progressive hints and explaining runtime semantics without spoiling quiz answers.</p>
+      </div>
+
+      <div class="map-node">
+        <span class="node-badge badge-logic">Persistence</span>
+        <div class="node-title">Knowledge Summary & Gaps</div>
+        <span class="node-file">components/KnowledgeSummary.tsx</span>
+        <p class="node-desc">Tracks accuracy %, practice streaks, verified strengths, and active skill gaps in browser localStorage.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💡 Reusable Practice Takeaway</h2>
+    <div class="takeaway-box">
+      <div class="takeaway-title">The Active Prediction Inversion</div>
+      <p style="font-size: 0.9rem; color: #d1d5db;">
+        Instead of asking AI to write or explain code, flip the dynamic: require the human (or yourself) to predict execution output and state transitions before inspecting results. The gap between your predicted model and reality is where genuine learning happens.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
