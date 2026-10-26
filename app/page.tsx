@@ -11,9 +11,13 @@ import { KnowledgeSummary } from "@/components/KnowledgeSummary";
 import { CuratedLabView } from "@/components/CuratedLabView";
 import { CURATED_CHALLENGES, Challenge, Option } from "@/data/curatedChallenges";
 import { getStoredProgress, recordAttempt, UserProgress } from "@/lib/storage";
+import { useTheme } from "@/context/ThemeContext";
 import { Sparkles, Terminal, ChevronRight, Zap } from "lucide-react";
 
 export default function Home() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const [activeTab, setActiveTab] = useState<NavTab>("workbench");
   const [currentChallenge, setCurrentChallenge] = useState<Challenge>(CURATED_CHALLENGES[0]);
   const [isCustom, setIsCustom] = useState(false);
@@ -137,7 +141,11 @@ console.log(counter(), counter());`);
   const selectedOption = currentChallenge.options.find((o) => o.id === selectedOptionId);
 
   return (
-    <div className="flex min-h-screen bg-[#090d16] text-slate-100">
+    <div
+      className={`flex min-h-screen transition-colors duration-200 ${
+        isDark ? "bg-[#090d16] text-slate-100" : "bg-slate-50 text-slate-900"
+      }`}
+    >
       {/* Left Sidebar */}
       <SidebarNav
         activeTab={activeTab}
@@ -176,22 +184,36 @@ console.log(counter(), counter());`);
         {activeTab === "workbench" && (
           <div className="space-y-6 max-w-7xl mx-auto">
             {/* Header / Breadcrumb Bar (Matching Codelingo _0c_R-1b0... reference) */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1f293d] pb-4">
+            <div
+              className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 transition-colors ${
+                isDark ? "border-[#1f293d]" : "border-slate-200"
+              }`}
+            >
               <div>
-                <div className="flex items-center gap-2 text-xs text-slate-400 font-medium mb-1">
+                <div
+                  className={`flex items-center gap-2 text-xs font-medium mb-1 ${
+                    isDark ? "text-slate-400" : "text-slate-500"
+                  }`}
+                >
                   <span>{currentChallenge.category}</span>
-                  <ChevronRight className="h-3 w-3 text-slate-600" />
-                  <span className="text-indigo-400">{currentChallenge.concept}</span>
+                  <ChevronRight
+                    className={`h-3 w-3 ${isDark ? "text-slate-600" : "text-slate-400"}`}
+                  />
+                  <span className="text-indigo-500 font-semibold">{currentChallenge.concept}</span>
                 </div>
-                <h1 className="text-2xl font-black text-white tracking-tight flex items-center gap-2.5">
+                <h1
+                  className={`text-2xl font-black tracking-tight flex items-center gap-2.5 ${
+                    isDark ? "text-white" : "text-slate-900"
+                  }`}
+                >
                   <span>{currentChallenge.title}</span>
                   <span
                     className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                       currentChallenge.difficulty === "Beginner"
                         ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
                         : currentChallenge.difficulty === "Intermediate"
-                        ? "bg-amber-500/15 text-amber-400 border border-amber-500/30"
-                        : "bg-rose-500/15 text-rose-400 border border-rose-500/30"
+                        ? "bg-amber-500/15 text-amber-500 border border-amber-500/30"
+                        : "bg-rose-500/15 text-rose-500 border border-rose-500/30"
                     }`}
                   >
                     {currentChallenge.difficulty}
@@ -212,8 +234,14 @@ console.log(counter(), counter());`);
                   </button>
                 )}
                 {!isCustom && (
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 bg-[#111827] border border-[#1f293d] px-3 py-2 rounded-xl">
-                    <span className="h-2 w-2 rounded-full bg-indigo-400 animate-ping" />
+                  <div
+                    className={`flex items-center gap-2 text-xs font-semibold px-3 py-2 rounded-xl border transition-colors ${
+                      isDark
+                        ? "text-slate-300 bg-[#111827] border-[#1f293d]"
+                        : "text-slate-700 bg-white border-slate-200 shadow-sm"
+                    }`}
+                  >
+                    <span className="h-2 w-2 rounded-full bg-indigo-500 animate-ping" />
                     <span>Active Probe Stage</span>
                   </div>
                 )}

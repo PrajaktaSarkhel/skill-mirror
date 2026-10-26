@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
+  :root,
+  .dark {
     --bg-canvas: #090d16;
     --card-surface: #111827;
     --card-surface-elevated: #162032;
@@ -19,29 +20,59 @@
     --accent-amber: #f59e0b;
   }
 
+  .light {
+    --bg-canvas: #f8fafc;
+    --card-surface: #ffffff;
+    --card-surface-elevated: #f1f5f9;
+    --border-subtle: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3af;
+    --accent-indigo: #4f46e5;
+    --accent-indigo-glow: rgba(79, 70, 229, 0.15);
+    --accent-emerald: #059669;
+    --accent-emerald-glow: rgba(5, 150, 105, 0.15);
+    --accent-coral: #e11d48;
+    --accent-coral-glow: rgba(225, 29, 72, 0.15);
+    --accent-amber: #d97706;
+  }
+
   body {
     background-color: var(--bg-canvas);
     color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 }
 
-/* Custom Scrollbar for code and chat */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar-track {
+.dark ::-webkit-scrollbar-track {
   background: #090d16;
 }
-::-webkit-scrollbar-thumb {
+.dark ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 9999px;
 }
-::-webkit-scrollbar-thumb:hover {
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #334155;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 /* Code highlighting styles */
@@ -53,11 +84,35 @@
 .code-variable { color: #e2e8f0; }
 .code-operator { color: #c084fc; }
 
+.dark .code-keyword { color: #f43f5e; font-weight: 600; }
+.dark .code-function { color: #60a5fa; }
+.dark .code-string { color: #34d399; }
+.dark .code-number { color: #fbbf24; }
+.dark .code-comment { color: #64748b; font-style: italic; }
+.dark .code-variable { color: #f1f5f9; }
+.dark .code-operator { color: #c084fc; }
+
+.light .code-keyword { color: #be123c; font-weight: 600; }
+.light .code-function { color: #1d4ed8; font-weight: 600; }
+.light .code-string { color: #15803d; }
+.light .code-number { color: #b45309; }
+.light .code-comment { color: #64748b; font-style: italic; }
+.light .code-variable { color: #0f172a; }
+.light .code-operator { color: #7c3aed; }
+
 /* Custom Glow & Card Utilities */
 .glass-panel {
-  background: rgba(17, 24, 39, 0.75);
   backdrop-filter: blur(12px);
+}
+
+.dark .glass-panel {
+  background: rgba(17, 24, 39, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .glow-indigo {

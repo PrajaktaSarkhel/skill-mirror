@@ -11,6 +11,7 @@ import {
   CornerDownLeft,
 } from "lucide-react";
 import { Challenge } from "@/data/curatedChallenges";
+import { useTheme } from "@/context/ThemeContext";
 
 interface Message {
   id: string;
@@ -28,6 +29,9 @@ export function SocraticDrawer({
   challenge,
   activeMisconception,
 }: SocraticDrawerProps) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "m-init",
@@ -100,31 +104,55 @@ export function SocraticDrawer({
   ];
 
   return (
-    <div className="bg-[#111827] border border-[#1f293d] rounded-2xl flex flex-col h-[580px] shadow-xl overflow-hidden">
+    <div
+      className={`border rounded-2xl flex flex-col h-[580px] shadow-xl overflow-hidden transition-colors ${
+        isDark
+          ? "bg-[#111827] border-[#1f293d]"
+          : "bg-white border-slate-200 shadow-slate-200/50"
+      }`}
+    >
       {/* Header */}
-      <div className="bg-[#0e1424] px-4 py-3 border-b border-[#1f293d] flex items-center justify-between">
+      <div
+        className={`px-4 py-3 border-b flex items-center justify-between transition-colors ${
+          isDark ? "bg-[#0e1424] border-[#1f293d]" : "bg-slate-50 border-slate-200"
+        }`}
+      >
         <div className="flex items-center gap-2">
-          <div className="h-7 w-7 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center">
+          <div className="h-7 w-7 rounded-lg bg-indigo-600/20 text-indigo-500 flex items-center justify-center">
             <Lightbulb className="h-4 w-4" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h4
+              className={`text-xs font-bold uppercase tracking-wider ${
+                isDark ? "text-white" : "text-slate-900"
+              }`}
+            >
               Follow-Up Discussion
             </h4>
-            <p className="text-[11px] text-slate-400">Socratic Mentor · Guides without spoiling</p>
+            <p className={`text-[11px] ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+              Socratic Mentor · Guides without spoiling
+            </p>
           </div>
         </div>
         <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" title="AI Ready" />
       </div>
 
       {/* Quick Prompts Bar */}
-      <div className="px-3 py-2 bg-[#090d16] border-b border-[#1f293d] flex items-center gap-1.5 overflow-x-auto text-[11px]">
-        <Sparkles className="h-3 w-3 text-indigo-400 shrink-0" />
+      <div
+        className={`px-3 py-2 border-b flex items-center gap-1.5 overflow-x-auto text-[11px] transition-colors ${
+          isDark ? "bg-[#090d16] border-[#1f293d]" : "bg-slate-50/70 border-slate-200"
+        }`}
+      >
+        <Sparkles className="h-3 w-3 text-indigo-500 shrink-0" />
         {quickPrompts.map((p, idx) => (
           <button
             key={idx}
             onClick={() => handleSend(p)}
-            className="whitespace-nowrap px-2.5 py-1 rounded-full bg-[#1e293b] text-slate-300 hover:text-white hover:bg-indigo-600/30 hover:border-indigo-500/40 border border-slate-700/60 transition"
+            className={`whitespace-nowrap px-2.5 py-1 rounded-full border transition cursor-pointer ${
+              isDark
+                ? "bg-[#1e293b] text-slate-300 hover:text-white hover:bg-indigo-600/30 hover:border-indigo-500/40 border-slate-700/60"
+                : "bg-white text-slate-700 hover:text-indigo-600 hover:bg-slate-100 hover:border-indigo-300 border-slate-200 shadow-xs"
+            }`}
           >
             {p}
           </button>
@@ -141,22 +169,28 @@ export function SocraticDrawer({
               className={`flex items-start gap-2.5 ${isBot ? "justify-start" : "justify-end"}`}
             >
               {isBot && (
-                <div className="h-6 w-6 rounded-md bg-indigo-600/30 text-indigo-300 flex items-center justify-center shrink-0 mt-0.5 border border-indigo-500/30">
+                <div className="h-6 w-6 rounded-md bg-indigo-600/25 text-indigo-500 flex items-center justify-center shrink-0 mt-0.5 border border-indigo-500/30">
                   <Bot className="h-3.5 w-3.5" />
                 </div>
               )}
 
               <div
-                className={`max-w-[85%] rounded-2xl p-3 leading-relaxed shadow-sm ${
+                className={`max-w-[85%] rounded-2xl p-3 leading-relaxed shadow-xs ${
                   isBot
-                    ? "bg-[#162032] border border-[#23334e] text-slate-200"
+                    ? isDark
+                      ? "bg-[#162032] border border-[#23334e] text-slate-200"
+                      : "bg-slate-100 border border-slate-200 text-slate-800"
                     : "bg-indigo-600 text-white font-medium"
                 }`}
               >
                 <div>{m.text}</div>
                 <div
                   className={`text-[9px] mt-1 text-right ${
-                    isBot ? "text-slate-400" : "text-indigo-200"
+                    isBot
+                      ? isDark
+                        ? "text-slate-400"
+                        : "text-slate-500"
+                      : "text-indigo-200"
                   }`}
                 >
                   {m.timestamp}
@@ -164,7 +198,11 @@ export function SocraticDrawer({
               </div>
 
               {!isBot && (
-                <div className="h-6 w-6 rounded-md bg-slate-700 text-slate-300 flex items-center justify-center shrink-0 mt-0.5">
+                <div
+                  className={`h-6 w-6 rounded-md flex items-center justify-center shrink-0 mt-0.5 ${
+                    isDark ? "bg-slate-700 text-slate-300" : "bg-indigo-100 text-indigo-700"
+                  }`}
+                >
                   <User className="h-3.5 w-3.5" />
                 </div>
               )}
@@ -173,8 +211,12 @@ export function SocraticDrawer({
         })}
 
         {isLoading && (
-          <div className="flex items-center gap-2 text-slate-400 text-xs italic">
-            <Bot className="h-3.5 w-3.5 text-indigo-400 animate-spin" />
+          <div
+            className={`flex items-center gap-2 text-xs italic ${
+              isDark ? "text-slate-400" : "text-slate-500"
+            }`}
+          >
+            <Bot className="h-3.5 w-3.5 text-indigo-500 animate-spin" />
             <span>Socratic coach is formulating guidance...</span>
           </div>
         )}
@@ -182,7 +224,11 @@ export function SocraticDrawer({
       </div>
 
       {/* Input Box */}
-      <div className="p-3 bg-[#0e1424] border-t border-[#1f293d]">
+      <div
+        className={`p-3 border-t transition-colors ${
+          isDark ? "bg-[#0e1424] border-[#1f293d]" : "bg-slate-50 border-slate-200"
+        }`}
+      >
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -195,15 +241,21 @@ export function SocraticDrawer({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask a question about this code or explanation..."
-            className="w-full bg-[#090d16] border border-[#23334e] rounded-xl pl-3.5 pr-10 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+            className={`w-full rounded-xl pl-3.5 pr-10 py-2.5 text-xs transition focus:outline-none focus:border-indigo-500 ${
+              isDark
+                ? "bg-[#090d16] border border-[#23334e] text-white placeholder-slate-500"
+                : "bg-white border border-slate-300 text-slate-900 placeholder-slate-400"
+            }`}
           />
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className={`absolute right-1.5 p-1.5 rounded-lg transition ${
+            className={`absolute right-1.5 p-1.5 rounded-lg transition cursor-pointer ${
               input.trim() && !isLoading
                 ? "bg-indigo-600 text-white hover:bg-indigo-500"
-                : "text-slate-600"
+                : isDark
+                ? "text-slate-600"
+                : "text-slate-400"
             }`}
           >
             <Send className="h-3.5 w-3.5" />
