@@ -234,7 +234,7 @@ export function KnowledgeSummary({
           </div>
 
           <p className={`text-xs ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-            These are not "mistakes" — they are valuable cognitive misalignments ready for remediation.
+            These are not "mistakes" : they are valuable cognitive misalignments ready for remediation.
           </p>
 
           <div className="space-y-3">

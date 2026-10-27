@@ -3,7 +3,7 @@ doc: prd
 status: approved
 ---
 
-# SkillMirror — Product Requirements
+# SkillMirror : Product Requirements
 
 An adaptive developer education application that diagnoses underlying misconceptions in code comprehension and delivers targeted remedial challenges.
 Source: `scope.md > The Unique Kernel` and `scope.md > The Core Loop`.

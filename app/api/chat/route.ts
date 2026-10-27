@@ -53,7 +53,7 @@ Respond directly in 2-3 concise, insightful paragraphs. Ask one guiding question
         "Great question! In JavaScript, 'var' declarations were designed before block scoping existed. When you declare 'var i = 0' inside a for loop, it hoists to the nearest enclosing function or global object. That means all 3 callback functions share the exact same variable in memory! By the time you call them, the loop has already completed. What do you think the value of that shared variable is when the loop finishes?";
     } else if (lower.includes("closure")) {
       reply =
-        "Think of a closure as a backpack that a function carries around with it. Wherever the function goes, it keeps a live reference to the variables in the room where it was born. Crucially, it doesn't take a snapshot of the value—it holds a reference to the actual variable box. If that box changes later, the closure sees the new value. Does that change how you view inner functions?";
+        "Think of a closure as a backpack that a function carries around with it. Wherever the function goes, it keeps a live reference to the variables in the room where it was born. Crucially, it doesn't take a snapshot of the value:it holds a reference to the actual variable box. If that box changes later, the closure sees the new value. Does that change how you view inner functions?";
     } else if (lower.includes("hint")) {
       reply =
         "Here is a clue: Pay close attention to timing. When are the functions created versus when are they actually called? If a variable changes between creation time and call time, which value does the function see?";

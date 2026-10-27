@@ -1,4 +1,4 @@
-# SkillMirror — Find Out What You Actually Understand
+# SkillMirror : Find Out What You Actually Understand
 
 > **Built for Devpost Learn: Build With AI: Basics Hackathon**  
 > *Adaptive Learning · Developer Education · Cognitive Misconception Diagnosis*
@@ -6,12 +6,12 @@
 ---
 
 ## 🎯 The Core Problem
-With AI coding assistants, learners can generate working code in seconds—but often don't truly understand how it executes. Traditional tutorials and AI chatbots provide passive text explanations that foster an "illusion of competence," leaving developers stuck when faced with production bugs or technical interviews.
+With AI coding assistants, learners can generate working code in seconds:but often don't truly understand how it executes. Traditional tutorials and AI chatbots provide passive text explanations that foster an "illusion of competence," leaving developers stuck when faced with production bugs or technical interviews.
 
 ## 🪞 The Solution: SkillMirror
 SkillMirror flips the dynamic. Instead of passively explaining code to you:
 1. **Predict Before You Peek:** Paste any code snippet or pick a classic mental model trap. SkillMirror forces you to predict runtime output, evaluation timing, or edge-case behavior before answers are revealed.
-2. **Cognitive Misconception Diagnosis:** When you select an intuitive wrong answer, SkillMirror doesn't just say "wrong"—it pinpoints the exact cognitive flaw in your mental model (e.g., *"You assumed `var` is block-scoped inside loops"*).
+2. **Cognitive Misconception Diagnosis:** When you select an intuitive wrong answer, SkillMirror doesn't just say "wrong":it pinpoints the exact cognitive flaw in your mental model (e.g., *"You assumed `var` is block-scoped inside loops"*).
 3. **Adaptive Targeted Remediation:** SkillMirror dynamically generates a follow-up challenge isolating that exact misconception (e.g., swapping `var` with `let`) to confirm your mental model is repaired.
 4. **Socratic Mirror Coach:** A split-screen AI mentor provides progressive hints and execution explanations without spoiling solutions.
 5. **Knowledge Summary & Cognitive Map:** Tracks your demonstrated strengths, active skill gaps, accuracy %, and practice streaks.
@@ -21,11 +21,11 @@ SkillMirror flips the dynamic. Instead of passively explaining code to you:
 ## 📁 Devpost Learn Planning Artifacts
 As required by the Devpost Learn Skill Pack, all planning documents generated during flipped interaction are included in the repository:
 
-- [`devpost/scope.md`](devpost/scope.md) — The Unique Kernel, Core Loop, and PoC Boundary ([Interactive Scope View](devpost/scope.html))
-- [`devpost/prd.md`](devpost/prd.md) — Product Requirements, User Journey, and Look & Feel ([Interactive PRD View](devpost/prd.html))
-- [`devpost/spec.md`](devpost/spec.md) — Technical Blueprint, Data Model, and Fallback Strategy ([Interactive Spec View](devpost/spec.html))
-- [`devpost/checklist.md`](devpost/checklist.md) — Slices, verification logs, and completion record
-- [`devpost/app-map.html`](devpost/app-map.html) — Component architecture map and reusable learning takeaways
+- [`devpost/scope.md`](devpost/scope.md) : The Unique Kernel, Core Loop, and PoC Boundary ([Interactive Scope View](devpost/scope.html))
+- [`devpost/prd.md`](devpost/prd.md) : Product Requirements, User Journey, and Look & Feel ([Interactive PRD View](devpost/prd.html))
+- [`devpost/spec.md`](devpost/spec.md) : Technical Blueprint, Data Model, and Fallback Strategy ([Interactive Spec View](devpost/spec.html))
+- [`devpost/checklist.md`](devpost/checklist.md) : Slices, verification logs, and completion record
+- [`devpost/app-map.html`](devpost/app-map.html) : Component architecture map and reusable learning takeaways
 
 ---
 

@@ -3,7 +3,7 @@ doc: spec
 status: approved
 ---
 
-# SkillMirror — Technical Spec
+# SkillMirror : Technical Spec
 
 ## How This Works, In Plain Language
 SkillMirror is a developer education web app that tests what you actually understand about code rather than just explaining it to you. When you paste code or pick a classic pitfall (like JavaScript closures or Python mutable defaults), SkillMirror parses the code and generates a multi-choice prediction quiz. Instead of looking at execution outputs passively, you must predict what the code does first.

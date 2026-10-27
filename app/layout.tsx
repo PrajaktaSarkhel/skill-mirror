@@ -3,7 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
-  title: "SkillMirror — Find Out What You Actually Understand",
+  title: "SkillMirror : Find Out What You Actually Understand",
   description: "Adaptive developer education platform that diagnoses underlying mental model misconceptions in code execution.",
 };
 

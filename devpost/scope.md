@@ -3,7 +3,7 @@ doc: scope
 status: approved
 ---
 
-# SkillMirror — Find Out What You Actually Understand
+# SkillMirror : Find Out What You Actually Understand
 
 An adaptive developer education app that tests what you actually understand about code rather than just explaining it to you.
 
@@ -27,7 +27,7 @@ A developer, coding bootcamp student, or self-taught programmer who uses AI to w
 - **Tone:** Encouraging, rigorous, Socratic, and developer-first.
 
 ## Why This Matters to the Learner
-In the era of AI-generated code, the limiting factor for developers is no longer typing syntax—it is understanding execution semantics and mental models. SkillMirror empowers learners to build real competence that endures.
+In the era of AI-generated code, the limiting factor for developers is no longer typing syntax:it is understanding execution semantics and mental models. SkillMirror empowers learners to build real competence that endures.
 
 ## What "Working" Looks Like
 In the live demo:
