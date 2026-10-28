@@ -8,7 +8,6 @@ import {
   Flame,
   Award,
   ChevronRight,
-  Sparkles,
   Sun,
   Moon,
 } from "lucide-react";
@@ -34,7 +33,7 @@ export function SidebarNav({
 
   return (
     <aside
-      className={`w-64 border-r flex flex-col justify-between p-4 shrink-0 h-screen sticky top-0 transition-colors duration-200 ${
+      className={`w-64 border-r flex flex-col p-4 shrink-0 h-screen sticky top-0 transition-colors duration-200 overflow-y-auto ${
         isDark
           ? "bg-[#0d121f] border-[#1f293d]"
           : "bg-white border-slate-200 shadow-sm"
@@ -184,59 +183,6 @@ export function SidebarNav({
             </div>
           </button>
         </nav>
-      </div>
-
-      {/* User / Badge Footer */}
-      <div
-        className={`pt-4 border-t space-y-3 transition-colors ${
-          isDark ? "border-[#1f293d]/80" : "border-slate-200"
-        }`}
-      >
-        <div
-          className={`border rounded-xl p-3 transition-colors ${
-            isDark
-              ? "bg-gradient-to-r from-indigo-950/60 to-purple-950/60 border-indigo-800/30"
-              : "bg-indigo-50/80 border-indigo-200/80"
-          }`}
-        >
-          <div
-            className={`flex items-center gap-2 text-xs font-semibold mb-1 ${
-              isDark ? "text-indigo-300" : "text-indigo-700"
-            }`}
-          >
-            <Sparkles className="h-3.5 w-3.5 text-indigo-500" />
-            <span>Devpost Hackathon Mode</span>
-          </div>
-          <p
-            className={`text-[11px] leading-relaxed ${
-              isDark ? "text-slate-400" : "text-slate-600"
-            }`}
-          >
-            Diagnoses mental model blind spots through active output prediction.
-          </p>
-        </div>
-
-        <div className="flex items-center gap-3 px-1 py-1">
-          <div
-            className={`h-8 w-8 rounded-full flex items-center justify-center font-bold text-xs ${
-              isDark
-                ? "bg-slate-700 border border-slate-600 text-indigo-300"
-                : "bg-indigo-100 border border-indigo-200 text-indigo-700"
-            }`}
-          >
-            DL
-          </div>
-          <div className="overflow-hidden">
-            <div
-              className={`text-xs font-semibold truncate ${
-                isDark ? "text-slate-200" : "text-slate-800"
-              }`}
-            >
-              Devpost Learner
-            </div>
-            <div className="text-[10px] text-emerald-500 font-medium">Adaptive Session Active</div>
-          </div>
-        </div>
       </div>
     </aside>
   );
